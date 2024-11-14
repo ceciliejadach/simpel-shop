@@ -28,7 +28,7 @@ const Header = ({ items, setItems, deleteItem, basketCounter }) => {
             }}
           >
             <Image src={BasketIcon} alt="illustration af kurv" />
-            {items.length > 0 && <span className="absolute top-0 right-0 bg-blue-500 text-white rounded-full text-xs px-1">{items.length}</span>}
+            {/* {items.length > 0 && <span className="absolute top-0 right-0 bg-blue-500 text-white rounded-full text-xs px-1">{items.length}</span>} */}
           </button>
         </ul>
       </nav>

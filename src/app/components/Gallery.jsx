@@ -5,11 +5,16 @@ import { useState } from "react";
 const Gallery = ({ thumbnail, images, title }) => {
   const [selectedProduct, setSelectedProduct] = useState(thumbnail);
   return (
-    <div className="grid gap-2">
-      <div className="bg-primary-gray grid place-content-center rounded-xl ">
-        <Image src={selectedProduct} height={500} width={500} alt={title}></Image>
+    <div className="grid md:grid-cols-[0.1fr_1fr_0.1fr] lg:grid-cols-[0.1fr_1fr_0.1fr] gap-2">
+      <div className="grid place-content-center rounded-xl col-start-2">
+        <Image
+          src={selectedProduct}
+          height={500}
+          width={500}
+          alt={title}
+        ></Image>
       </div>
-      <ul className="flex gap-2">
+      <ul className="grid gap-2 col-start-2">
         {images.map((image, id) => (
           <li key={id} className="bg-primary-gray rounded-md h-fit w-fit ">
             <button onClick={() => setSelectedProduct(image)}>

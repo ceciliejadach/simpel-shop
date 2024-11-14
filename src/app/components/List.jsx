@@ -1,10 +1,14 @@
 "use client";
 import ListItem from "./ListItem";
 import { useState } from "react";
+import Link from "next/link";
+
 const List = ({ items, setItems, deleteItem, basketCounter }) => {
   const [productCount, setProductCount] = useState(1);
-  <ListItem items={items} setItems={setItems}></ListItem>;
 
+  const serializeItems = () => {
+    return encodeURIComponent(JSON.stringify(items));
+  };
   const totalPrice = items.reduce((prePrice, items) => prePrice + items.price, 0);
   console.log(totalPrice, "prisen er");
 
@@ -13,6 +17,7 @@ const List = ({ items, setItems, deleteItem, basketCounter }) => {
       <ul>
         {items.map((items) => (
           <ListItem
+            setItems={setItems}
             setProductCount={setProductCount}
             productCount={productCount}
             items={items}
@@ -26,6 +31,10 @@ const List = ({ items, setItems, deleteItem, basketCounter }) => {
             deleteItem={deleteItem}
           ></ListItem>
         ))}
+
+        <Link href={`/payment?items=${serializeItems()}`}>
+          <button className="btn">Gå til betaling</button>
+        </Link>
       </ul>
       <div>{items?.length > 0 && <p>{`Total Pris ${totalPrice}`}</p>}</div>
     </div>

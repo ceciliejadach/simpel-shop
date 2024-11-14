@@ -8,6 +8,8 @@
 
   --fluid-40-60: clamp(2.5rem, 2.0652rem + 2.1739vw, 3.75rem);
   --fluid-24-36: clamp(1.5rem, 1.2391rem + 1.3043vw, 2.25rem);
+
+  --blue: #3c35ff;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -33,12 +35,19 @@ h2 {
 
 @layer components {
   .btn {
-    background-color: #3c35ff;
+    background-color: var(--blue);
     color: white;
     border-radius: 25px;
     padding: 6px 16px;
     width: fit-content;
     height: fit-content;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: white;
+    color: var(--blue);
+    box-shadow: inset 0 0 0 1px var(--blue);
   }
 
   .footer {

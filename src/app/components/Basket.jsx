@@ -1,5 +1,6 @@
 "use client";
 import List from "./List";
+import Link from "react";
 
 const Basket = ({ isOpen, setIsOpen, items, setItems, deleteItem, basketCounter }) => {
   return (

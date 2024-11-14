@@ -1,5 +1,4 @@
 import ProductList from "../components/ProductList";
-import Header from "../components/Header";
 
 export default async function Page() {
   const fetchProducts = async () => {
@@ -19,7 +18,6 @@ export default async function Page() {
 
   return (
     <>
-      <Header />
       <ProductList initialProducts={products} categories={categories} />
     </>
   );

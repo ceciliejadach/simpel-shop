@@ -4,11 +4,14 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
+import Header from "./Header";
 
 const ProductList = ({ initialProducts, categories }) => {
   const [products, setProducts] = useState(initialProducts);
   const [filter, setFilter] = useState("all");
   const [items, setItems] = useState([]);
+
+  let basketCounter;
 
   function addItem(product) {
     const newItem = {
@@ -16,8 +19,11 @@ const ProductList = ({ initialProducts, categories }) => {
       text: product.title,
       completed: false,
       price: product.price,
+      tag: product.tags,
+      image: product.thumbnail,
     };
-
+    basketCounter = 1 + newItem.length;
+    console.log("counter", basketCounter);
     setItems((prevItems) => [...prevItems, newItem]);
     console.log("Added item:", newItem);
   }
@@ -39,34 +45,40 @@ const ProductList = ({ initialProducts, categories }) => {
     const data = await res.json();
     setProducts(data.products);
   }
+  const deleteItem = (id) => {
+    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
 
   return (
-    <div>
-      <label htmlFor="categorySelect">Vælg kategori:</label>
-      <select id="categorySelect" onChange={(e) => setFilter(e.target.value)} value={filter}>
-        <option value="all">Alle kategorier</option>
-        {categories.map((category, index) => (
-          <option key={category.id || index} value={category.name || category}>
-            {category.name || category}
-          </option>
-        ))}
-      </select>
+    <>
+      <Header basketCounter={basketCounter} items={items} setItems={setItems} deleteItem={deleteItem} />
       <div>
-        {products.map((product) => (
-          <div key={product.id}>
-            <Link href={`/products/${product.id}`}>
-              <Image src={product.thumbnail} alt={product.title} width={200} height={200} />
-              <h3>{product.title}</h3>
-              <p>{product.description}</p>
-              <img src={product.image} alt={product.title} />
-            </Link>
-            <button onClick={() => addItem(product)} className="px-8 py-2 bg-[--purple] text-black rounded-md">
-              Add to cart
-            </button>
-          </div>
-        ))}
+        <label htmlFor="categorySelect">Vælg kategori:</label>
+        <select id="categorySelect" onChange={(e) => setFilter(e.target.value)} value={filter}>
+          <option value="all">Alle kategorier</option>
+          {categories.map((category, index) => (
+            <option key={category.id || index} value={category.name || category}>
+              {category.name || category}
+            </option>
+          ))}
+        </select>
+        <div>
+          {products.map((product) => (
+            <div key={product.id}>
+              <Link href={`/products/${product.id}`}>
+                <Image src={product.thumbnail} alt={product.title} width={200} height={200} />
+                <h3>{product.title}</h3>
+                <p>{product.description}</p>
+                <img src={product.image} alt={product.title} />
+              </Link>
+              <button onClick={() => addItem(product)} className="px-8 py-2 bg-[--purple] text-black rounded-md">
+                Add to cart
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

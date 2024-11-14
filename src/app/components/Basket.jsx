@@ -1,7 +1,7 @@
 "use client";
 import List from "./List";
 
-const Basket = ({ isOpen, setIsOpen }) => {
+const Basket = ({ isOpen, setIsOpen, items, setItems, deleteItem, basketCounter }) => {
   return (
     <>
       {isOpen && (
@@ -16,7 +16,7 @@ const Basket = ({ isOpen, setIsOpen }) => {
             >
               click mig!
             </button>
-            <List></List>
+            <List basketCounter={basketCounter} items={items} setItems={setItems} deleteItem={deleteItem}></List>
           </div>
         </section>
       )}

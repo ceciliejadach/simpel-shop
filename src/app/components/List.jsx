@@ -1,22 +1,33 @@
+"use client";
 import ListItem from "./ListItem";
-import Link from "next/link";
-
+import { useState } from "react";
 const List = ({ items, setItems, deleteItem, basketCounter }) => {
-  // Serialiser hele item-arrayet som JSON
-  const serializeItems = () => {
-    return encodeURIComponent(JSON.stringify(items));
-  };
+  const [productCount, setProductCount] = useState(1);
+  <ListItem items={items} setItems={setItems}></ListItem>;
+
+  const totalPrice = items.reduce((prePrice, items) => prePrice + items.price, 0);
+  console.log(totalPrice, "prisen er");
 
   return (
     <div>
       <ul>
-        {items.map((item) => (
-          <ListItem items={item} basketCounter={basketCounter} key={item.id} title={item.text} price={item.price} tag={item.tag} image={item.image} itemId={item.id} deleteItem={deleteItem} />
+        {items.map((items) => (
+          <ListItem
+            setProductCount={setProductCount}
+            productCount={productCount}
+            items={items}
+            basketCounter={basketCounter}
+            key={items.id}
+            title={items.text}
+            price={items.price}
+            tag={items.tag}
+            image={items.image}
+            itemId={items.id}
+            deleteItem={deleteItem}
+          ></ListItem>
         ))}
       </ul>
-      <Link href={`/payment?items=${serializeItems()}`}>
-        <button className="btn">Gå til betaling</button>
-      </Link>
+      <div>{items?.length > 0 && <p>{`Total Pris ${totalPrice}`}</p>}</div>
     </div>
   );
 };

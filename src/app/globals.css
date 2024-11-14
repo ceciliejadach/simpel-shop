@@ -5,6 +5,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --fluid-40-60: clamp(2.5rem, 2.0652rem + 2.1739vw, 3.75rem);
+  --fluid-24-36: clamp(1.5rem, 1.2391rem + 1.3043vw, 2.25rem);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -18,4 +21,31 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: var(--fluid-40-60);
+}
+
+h2 {
+  font-size: var(--fluid-24-36);
+}
+
+@layer components {
+  .btn {
+    background-color: #3c35ff;
+    color: white;
+    border-radius: 25px;
+    padding: 6px 16px;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .footer {
+    background-image: url("../app/img/footer-wave.svg");
+    object-fit: cover;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }

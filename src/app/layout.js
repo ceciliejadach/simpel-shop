@@ -1,6 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
+import Image from "next/image";
+import Logo from "../app/img/logo.svg";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,7 +23,30 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <main className="p-4">{children}</main>
+        <footer className="footer grid p-8 ">
+          <div className="pt-8 px-4 flex flex-col gap-4 md:flex-row md:self-center md:justify-between md:max-w-screen-md md:pl-10">
+            <Link href={"/"}>
+              <Image src={Logo} alt="Billede af logo" />
+            </Link>
+            <div className="text-white">
+              <h2>Kontakt os</h2>
+              <p>Tlf: +45 33113311</p>
+              <p>Lokation: København</p>
+            </div>
+            <div className="text-white">
+              <h2>Hjemmeside</h2>
+              <Link href="/">
+                <p className="hover:underline">Forside</p>
+              </Link>
+              <Link href="/products">
+                <p className=" hover:underline">Produkter</p>
+              </Link>
+            </div>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }

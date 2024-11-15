@@ -114,7 +114,6 @@ const ProductList = ({ initialProducts, categories }) => {
                     //   setArt(true);
                     // }
                   }}
-                  className="btn"
                 >
                   Add to cart
                 </button>

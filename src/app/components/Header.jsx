@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "../img/logo.svg";
 import { useState } from "react";
-const Header = ({ items, setItems, deleteItem, basketCounter }) => {
+const Header = ({ items, setItems, deleteItem, basketCounter, setArt, artNum }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -32,7 +32,7 @@ const Header = ({ items, setItems, deleteItem, basketCounter }) => {
           </button>
         </ul>
       </nav>
-      <Basket basketCounter={basketCounter} deleteItem={deleteItem} items={items} setItems={setItems} isOpen={isOpen} setIsOpen={setIsOpen}></Basket>
+      <Basket artNum={artNum} setArt={setArt} basketCounter={basketCounter} deleteItem={deleteItem} items={items} setItems={setItems} isOpen={isOpen} setIsOpen={setIsOpen}></Basket>
     </header>
   );
 };

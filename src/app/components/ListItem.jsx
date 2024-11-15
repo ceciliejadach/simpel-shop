@@ -2,15 +2,16 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const ListItem = ({ title, price, tag, image, itemId, deleteItem, setaddSameProduct }) => {
+const ListItem = ({ title, price, tag, image, itemId, deleteItem, setaddSameProduct, setArt, artNum, amount }) => {
   const [productCount, setProductCount] = useState(1);
+  let numberOfProductExtra = productCount + artNum;
   return (
     <li className="flex justify-around">
       <Image width={150} height={150} src={image} alt={title} />
       <div>
         <h2 className="text-2xl">{title} </h2>
         <p>{tag} </p>
-        <p className="pt-2">{`${price * productCount} $`}</p>
+        <p className="pt-2">{`${price * numberOfProductExtra} $`}</p>
       </div>
       <div
         className="flex justify-center gap-2 bg-white rounded-xl
@@ -19,7 +20,7 @@ const ListItem = ({ title, price, tag, image, itemId, deleteItem, setaddSameProd
         <button
           id={itemId}
           onClick={(event) => {
-            if (event.target.id == itemId && productCount > 1) {
+            if (event.target.id == itemId && numberOfProductExtra > 1) {
               let addSameProduct = 1;
               addSameProduct - 1;
               let numberOfProduct = productCount - addSameProduct;
@@ -29,19 +30,21 @@ const ListItem = ({ title, price, tag, image, itemId, deleteItem, setaddSameProd
               console.log("knap id", event.target.id);
             } else {
               deleteItem(itemId);
+              setArt(false);
             }
           }}
         >
           -
         </button>
-        <p>{productCount}</p>
+        <p>{productCount + artNum}</p>
         <button
           id={itemId}
           onClick={(event) => {
             if (event.target.id == itemId) {
-              let addSameProduct = 1;
+              let addSameProduct = 0;
               addSameProduct + 1;
               let numberOfProduct = productCount + addSameProduct;
+
               setaddSameProduct(numberOfProduct);
               setProductCount(productCount + 1);
             }

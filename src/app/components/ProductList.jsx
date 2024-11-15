@@ -24,6 +24,7 @@ const ProductList = ({ initialProducts, categories }) => {
       price: product.price,
       tag: product.tags,
       image: product.thumbnail,
+      amount: 1,
     };
     basketCounter = 1 + newItem.length;
     console.log("counter", basketCounter);

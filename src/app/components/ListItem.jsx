@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const ListItem = ({ title, price, tag, image, itemId, deleteItem, basketCounter, productCount, setProductCount }) => {
+const ListItem = ({ title, price, tag, image, itemId, deleteItem, productCount, setProductCount, setaddSameProduct }) => {
   let addSameProduct = 1;
   return (
     <li className="flex justify-around">
@@ -21,11 +21,8 @@ const ListItem = ({ title, price, tag, image, itemId, deleteItem, basketCounter,
               addSameProduct - 1;
               let numberOfProduct = productCount - addSameProduct;
               setProductCount(numberOfProduct);
-              console.log(event.target.id, "pls hjælp");
+              setaddSameProduct(numberOfProduct);
             } else {
-              console.log(event.target.id, "pls hjælp");
-              console.log(itemId, "knap id");
-              console.log(basketCounter, "the couter");
               deleteItem(itemId);
             }
           }}
@@ -39,11 +36,8 @@ const ListItem = ({ title, price, tag, image, itemId, deleteItem, basketCounter,
             if (event.target.id == itemId) {
               addSameProduct + 1;
               let numberOfProduct = productCount + addSameProduct;
+              setaddSameProduct(numberOfProduct);
               setProductCount(numberOfProduct);
-              console.log(numberOfProduct);
-              console.log("plus klick", event.target.id);
-            } else {
-              console.log("hej");
             }
           }}
         >

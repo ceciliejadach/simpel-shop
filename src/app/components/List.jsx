@@ -4,12 +4,11 @@ import Link from "next/link";
 
 import { useState } from "react";
 
-const List = ({ items, setItems, deleteItem, basketCounter }) => {
-  const [productCount, setProductCount] = useState(1);
+const List = ({ items, setItems, deleteItem }) => {
+  // const [productCount, setProductCount] = useState(1);
   const [addSameProduct, setaddSameProduct] = useState(1);
 
   const totalPrice = items.reduce((prePrice, items) => prePrice + items.price * addSameProduct, 0);
-  console.log(totalPrice, "prisen er");
 
   const serializeItems = () => {
     return encodeURIComponent(JSON.stringify(items));
@@ -20,10 +19,7 @@ const List = ({ items, setItems, deleteItem, basketCounter }) => {
       <ul>
         {items.map((items) => (
           <ListItem
-            setProductCount={setProductCount}
-            productCount={productCount}
             items={items}
-            basketCounter={basketCounter}
             key={items.id}
             title={items.text}
             price={items.price}

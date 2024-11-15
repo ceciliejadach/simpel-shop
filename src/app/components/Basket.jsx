@@ -28,14 +28,7 @@ const Basket = ({
                 <RxCross2 />
               </button>
             </div>
-            <List
-              basketCounter={basketCounter}
-              artNum={artNum}
-              setArt={setArt}
-              items={items}
-              setItems={setItems}
-              deleteItem={deleteItem}
-            />
+            <List items={items} setItems={setItems} deleteItem={deleteItem} />
           </div>
         </section>
       )}

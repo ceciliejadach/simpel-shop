@@ -73,7 +73,7 @@ const ProductList = ({ initialProducts, categories }) => {
         </div>
         <div className="pt-10 grid grid-cols-[repeat(2,minmax(0,325px))] justify-center gap-2 col-span-full mx-2  md:grid-cols-[repeat(3,minmax(0,325px))] md:col-span-full lg:col-start-1 lg:col-end-7 lg:row-start-2 md:gap-6 ">
           {products.map((product) => (
-            <div className="p-4 drop-shadow-md bg-white rounded-md grid" key={product.id}>
+            <div className="p-3 drop-shadow-md bg-white rounded-md grid gap-3" key={product.id}>
               <Link href={`/products/${product.id}`}>
                 <Image src={product.thumbnail} alt={product.title} width={200} height={200} className="justify-self-center" />
                 <div className="flex gap-1">
@@ -88,9 +88,9 @@ const ProductList = ({ initialProducts, categories }) => {
                   })}
                 </div>
 
-                <div className="flex justify-between items-start">
-                  <h3>{product.title}</h3>
-                  <p>{product.price} $</p>
+                <div className="flex justify-between items-start gap-2">
+                  <h3 className="font-semibold">{product.title}</h3>
+                  <h3>{product.price}$</h3>
                 </div>
 
                 <ul className="flex gap-2 text-[0.85rem]">
@@ -99,7 +99,7 @@ const ProductList = ({ initialProducts, categories }) => {
                   ))}
                 </ul>
               </Link>
-              <div className="grid justify-end">
+              <div className="grid justify-center md:justify-end">
                 <button
                   className="btn-2"
                   id={product.id}
@@ -115,7 +115,7 @@ const ProductList = ({ initialProducts, categories }) => {
                     // }
                   }}
                 >
-                  Add to cart
+                  Tilføj til kurv
                 </button>
               </div>
             </div>

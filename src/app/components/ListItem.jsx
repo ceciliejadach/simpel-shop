@@ -2,25 +2,14 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const ListItem = ({
-  title,
-  price,
-  tag,
-  image,
-  itemId,
-  deleteItem,
-  setaddSameProduct,
-  setArt,
-  artNum,
-  amount,
-}) => {
+const ListItem = ({ title, price, tag, image, itemId, deleteItem, setaddSameProduct, setArt, artNum, amount }) => {
   const [productCount, setProductCount] = useState(1);
   let numberOfProductExtra = productCount + artNum;
   return (
-    <li className="flex justify-around">
+    <li className="grid grid-cols-[auto_1fr] border-b-[1px] mb-4 p-2">
       <Image width={150} height={150} src={image} alt={title} />
       <div>
-        <h2 className="text-2xl">{title} </h2>
+        <h2 className="text-lg text-wrap max-w-40 font-semibold">{title} </h2>
         <p>{tag} </p>
         <p className="pt-2">{`${price * numberOfProductExtra} $`}</p>
       </div>

@@ -8,7 +8,7 @@ const ScrollContainer = ({ reviews }) => {
       <h2 className="text-center">Reviews</h2>
       <ul className="flex gap-2 justify-center my-8 flex-wrap">
         {reviews.map((review, id) => (
-          <li key={id} className="bg-[#EFEEFF] rounded-md h-fit w-58 grid gap-3 px-10 py-6 hover:scale-105 max-[400px]:w-44">
+          <li key={id} className="bg-[#EFEEFF] rounded-md h-fit w-58 grid gap-3 p-4  max-[400px]:w-44">
             <div className="grid gap-4">
               <h2 className="text-xl">
                 <strong>{review.reviewerName}</strong>

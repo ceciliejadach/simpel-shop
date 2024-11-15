@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <main className="p-4">{children}</main>
+        <main className="p-1">{children}</main>
         <footer className="footer grid p-8 ">
           <div className="pt-8 px-4 flex flex-col gap-4 md:flex-row md:self-center md:justify-between md:max-w-screen-md md:pl-4">
             <Link href={"/"}>

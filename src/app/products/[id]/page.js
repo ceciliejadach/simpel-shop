@@ -15,7 +15,7 @@ const Product = async ({ params }) => {
       <a href="/products" className="flex items-center hover:underline pl-4">
         <IoChevronBackOutline /> Tilbage
       </a>
-      <section className="grid grid-cols-[0.1fr_1fr_0.1fr] max-[400px]:grid-cols-1">
+      <section className="">
         <section className=" grid sm:grid-cols-1 sm:px-4 md:grid-cols-2 lg:grid-cols-2 xl: pt-4 pb-10 col-start-2 col-end-3 max-[600px]:grid-cols-1">
           <div className="lg:grid-cols-[2fr_1fr] grid gap-5 sm:p-4 md:col-start-1 md:col-end-4">
             <Gallery thumbnail={product.thumbnail} images={product.images} title={product.title} />

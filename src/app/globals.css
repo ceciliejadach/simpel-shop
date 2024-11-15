@@ -13,6 +13,7 @@
   --fluid-24-36: clamp(1.5rem, 1.2391rem + 1.3043vw, 2.25rem);
   --fluid-16-24: clamp(1rem, 0.8261rem + 0.8696vw, 1.5rem);
   --fluid-16-18: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
+  --fluid-12-16: clamp(0.75rem, 0.663rem + 0.4348vw, 1rem);
 
   --blue: #3c35ff;
 }
@@ -36,6 +37,10 @@ h1 {
 
 h2 {
   font-size: var(--fluid-24-36);
+}
+
+h3 {
+  font-size: var(--fluid-12-16);
 }
 
 @layer components {

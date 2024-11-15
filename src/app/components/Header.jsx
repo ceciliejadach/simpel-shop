@@ -6,14 +6,7 @@ import Image from "next/image";
 
 import { useState } from "react";
 import { PiFlowerDuotone } from "react-icons/pi";
-const Header = ({
-  items,
-  setItems,
-  deleteItem,
-  basketCounter,
-  setArt,
-  artNum,
-}) => {
+const Header = ({ items, setItems, deleteItem, basketCounter, setArt, artNum }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -34,26 +27,14 @@ const Header = ({
               setIsOpen(!isOpen);
               console.log("basket", isOpen);
             }}
+            className="relative"
           >
             <Image src={BasketIcon} alt="illustration af kurv" />
-            {items?.length > 0 && (
-              <span className="absolute top-11 right-11 bg-[--blue] text-white rounded-full text-xs px-1">
-                {items?.length}
-              </span>
-            )}
+            {items?.length > 0 && <span className="absolute top-[-6px] right-0 bg-[--blue] text-white rounded-full text-xs px-1">{items?.length}</span>}
           </button>
         </ul>
       </nav>
-      <Basket
-        artNum={artNum}
-        setArt={setArt}
-        basketCounter={basketCounter}
-        deleteItem={deleteItem}
-        items={items}
-        setItems={setItems}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-      ></Basket>
+      <Basket artNum={artNum} setArt={setArt} basketCounter={basketCounter} deleteItem={deleteItem} items={items} setItems={setItems} isOpen={isOpen} setIsOpen={setIsOpen}></Basket>
     </header>
   );
 };

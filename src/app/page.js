@@ -10,8 +10,8 @@ export default function Home() {
       <div className="grid gap-8 mb-9 md:grid-cols-2 max-w-screen-xl md:mx-auto">
         <div className="grid gap-4 md:gap-0">
           <div className="">
-            <h1 className="">
-              Velkommen til Bloom. <strong>Start din shopping!</strong>
+            <h1 className="leading-none">
+              Velkommen til Bloom. <br /> <strong>Start din shopping!</strong>
             </h1>
             <Link href="/products">
               <button className="btn mt-4">Se produkter</button>

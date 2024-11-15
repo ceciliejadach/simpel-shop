@@ -44,6 +44,7 @@ const ProductList = ({ initialProducts, categories }) => {
   // useEffect der kører, når filter ændres
   useEffect(() => {
     if (filter !== "all") {
+      //hvis filter ikke er lig med alle filtre returner det valgt filter
       fetchFilteredProducts(filter); // Henter produkter baseret på det valgte filter
     } else {
       setProducts(initialProducts); // Sætter produkter til de initiale, hvis filter er "all"

@@ -31,6 +31,19 @@ const Payment = () => {
 
   const [products, setProducts] = useState([]);
 
+  // useEffect(() => {
+  //   if (data && parsedItems.length > 0) {
+  //     const filteredProducts = parsedItems
+  //       .map((item) => {
+  //         const product = data.products.find((p) => p.id === item.id);
+  //         return product ? { ...product } : null;
+  //       })
+  //       .filter((product) => product !== null);
+
+  //     setProducts(filteredProducts);
+  //   }
+  // }, [data, parsedItems]);
+
   useEffect(() => {
     if (data && parsedItems.length > 0) {
       const filteredProducts = parsedItems
@@ -40,7 +53,9 @@ const Payment = () => {
         })
         .filter((product) => product !== null);
 
-      setProducts(filteredProducts);
+      setTimeout(() => {
+        setProducts(filteredProducts);
+      }, 0);
     }
   }, [data, parsedItems]);
 

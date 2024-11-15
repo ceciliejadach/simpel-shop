@@ -2,7 +2,18 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const ListItem = ({ title, price, tag, image, itemId, deleteItem, setaddSameProduct, setArt, artNum, amount }) => {
+const ListItem = ({
+  title,
+  price,
+  tag,
+  image,
+  itemId,
+  deleteItem,
+  setaddSameProduct,
+  setArt,
+  artNum,
+  amount,
+}) => {
   const [productCount, setProductCount] = useState(1);
   let numberOfProductExtra = productCount + artNum;
   return (

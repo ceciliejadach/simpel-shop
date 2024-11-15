@@ -4,21 +4,11 @@ import Link from "next/link";
 
 import { useState } from "react";
 
-const List = ({
-  items,
-  setItems,
-  deleteItem,
-  setArt,
-  artNum,
-  basketCounter,
-}) => {
+const List = ({ items, setItems, deleteItem, setArt, artNum, basketCounter }) => {
   // const [productCount, setProductCount] = useState(1);
   const [addSameProduct, setaddSameProduct] = useState(1);
 
-  const totalPrice = items.reduce(
-    (prePrice, items) => prePrice + items.price * (addSameProduct + artNum),
-    0
-  );
+  const totalPrice = items.reduce((prePrice, items) => prePrice + items.price * (addSameProduct + artNum), 0);
 
   const serializeItems = () => {
     return encodeURIComponent(JSON.stringify(items));
@@ -28,30 +18,11 @@ const List = ({
     <div>
       <ul className="">
         {items.map((items) => (
-          <ListItem
-            items={items}
-            key={items.id}
-            title={items.text}
-            price={items.price}
-            tag={items.tag}
-            image={items.image}
-            itemId={items.id}
-            deleteItem={deleteItem}
-            amount={items.amount}
-            setItems={setItems}
-            setaddSameProduct={setaddSameProduct}
-            setArt={setArt}
-            artNum={artNum}
-            basketCounter={basketCounter}
-          ></ListItem>
+          <ListItem items={items} key={items.id} title={items.text} price={items.price} tag={items.tag} image={items.image} itemId={items.id} deleteItem={deleteItem} amount={items.amount} setItems={setItems} setaddSameProduct={setaddSameProduct} setArt={setArt} artNum={artNum} basketCounter={basketCounter}></ListItem>
         ))}
       </ul>
-      <div>
-        {items?.length > 0 && (
-          <p className="text-bold">{`Total Pris ${totalPrice}`}</p>
-        )}
-      </div>
-      <Link href={`/payment?items=${serializeItems()}`}>
+      <div>{items?.length > 0 && <p className="text-bold">{`Total Pris ${totalPrice}`}</p>}</div>
+      <Link href={`/payment?items=${serializeItems()}&totalPrice=${totalPrice}`}>
         <button className="btn-2 mt-4">Gå til betaling</button>
       </Link>
     </div>

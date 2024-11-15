@@ -13,7 +13,8 @@ const ProductList = ({ initialProducts, categories }) => {
   const [products, setProducts] = useState(initialProducts);
   const [filter, setFilter] = useState("all");
   const [items, setItems] = useState([]);
-
+  const [art, setArt] = useState(false);
+  const [artNum, setArtNum] = useState(0);
   let basketCounter;
 
   function addItem(product) {
@@ -24,12 +25,12 @@ const ProductList = ({ initialProducts, categories }) => {
       price: product.price,
       tag: product.tags,
       image: product.thumbnail,
-      amount: 1,
+      produktAdd: false,
+      amount: 0,
     };
-    basketCounter = 1 + newItem.length;
-    console.log("counter", basketCounter);
+
     setItems((prevItems) => [...prevItems, newItem]);
-    console.log("Added item:", newItem);
+    console.log("Added item:", newItem.produktAdd);
   }
 
   useEffect(() => {
@@ -55,7 +56,7 @@ const ProductList = ({ initialProducts, categories }) => {
 
   return (
     <>
-      <Header basketCounter={basketCounter} items={items} setItems={setItems} deleteItem={deleteItem} />
+      <Header artNum={artNum} setArt={setArt} basketCounter={basketCounter} items={items} setItems={setItems} deleteItem={deleteItem} />
       <div className="">
         <div className="max-w-5xl mx-auto">
           <label htmlFor="categorySelect"></label>
@@ -99,7 +100,22 @@ const ProductList = ({ initialProducts, categories }) => {
                 </ul>
               </Link>
               <div className="grid justify-end">
-                <button onClick={() => addItem(product)} className="btn-2">
+                <button
+                  className="btn-2"
+                  id={product.id}
+                  onClick={() => {
+                    addItem(product);
+                    // if (art === true) {
+                    //   setArtNum(artNum + 1);
+                    //   console.log("produktet er der allerede", artNum);
+                    //   basketCounter = +1;
+                    // } else {
+                    //   console.log("ikke der", art);
+                    //   setArt(true);
+                    // }
+                  }}
+                  className="btn"
+                >
                   Add to cart
                 </button>
               </div>

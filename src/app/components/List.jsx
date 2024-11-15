@@ -24,7 +24,7 @@ const List = ({ items, setItems, deleteItem, basketCounter }) => {
       </ul>
       <div>{items?.length > 0 && <p>{`Total Pris ${totalPrice}`}</p>}</div>
       <Link href={`/payment?items=${serializeItems()}`}>
-        <button className="btn">Gå til betaling</button>
+        <button className="btn-2">Gå til betaling</button>
       </Link>
     </div>
   );

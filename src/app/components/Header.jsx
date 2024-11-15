@@ -3,16 +3,18 @@ import BasketIcon from "../img/basket.svg";
 import Basket from "./Basket";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../img/logo.svg";
+
 import { useState } from "react";
+import { PiFlowerDuotone } from "react-icons/pi";
+
 const Header = ({ items, setItems, deleteItem, basketCounter }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="col-start-3 col-end-6 grid grid-rows-1 mt-4 ">
-      <nav className="flex bg-primary-black text-secondary-gray py-6 text-xl justify-between px-10 rounded-md">
+    <header className="col-start-3 col-end-6 grid grid-rows-1 ">
+      <nav className="flex bg-primary-black text-secondary-gray mb-5 md:py-6 text-xl justify-between md:px-8 rounded-md">
         <Link href="/">
-          <Image src={Logo} alt="logo af brandet" />
+          <PiFlowerDuotone className="w-[3.5rem] h-[3.5rem] text-[--blue]" />
         </Link>
         <ul className="flex gap-4 items-center">
           <li>

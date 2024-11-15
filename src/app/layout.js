@@ -2,7 +2,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../app/img/logo.svg";
+
+import { PiFlowerDuotone } from "react-icons/pi";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +27,9 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <main className="p-4">{children}</main>
         <footer className="footer grid p-8 ">
-          <div className="pt-8 px-4 flex flex-col gap-4 md:flex-row md:self-center md:justify-between md:max-w-screen-md md:pl-10">
+          <div className="pt-8 px-4 flex flex-col gap-4 md:flex-row md:self-center md:justify-between md:max-w-screen-md md:pl-4">
             <Link href={"/"}>
-              <Image src={Logo} alt="Billede af logo" />
+              <PiFlowerDuotone className="w-[3.5rem] h-[3.5rem] text-white" />
             </Link>
             <div className="text-white">
               <h2>Kontakt os</h2>

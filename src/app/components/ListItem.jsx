@@ -17,7 +17,7 @@ const ListItem = ({
   const [productCount, setProductCount] = useState(1);
   let numberOfProductExtra = productCount + artNum;
   return (
-    <li className="flex justify-around">
+    <li className="flex">
       <Image width={150} height={150} src={image} alt={title} />
       <div>
         <h2 className="text-2xl">{title} </h2>

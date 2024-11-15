@@ -70,11 +70,11 @@ const ProductList = ({ initialProducts, categories }) => {
             ))}
           </select>
         </div>
-        <div className="pt-10 grid grid-cols-[repeat(2,minmax(0,325px))] justify-center gap-2 col-span-full mx-2  md:grid-cols-[repeat(3,minmax(0,325px))] md:col-span-full lg:col-start-1 lg:col-end-7 lg:row-start-2 md:gap-8">
+        <div className="pt-10 grid grid-cols-[repeat(2,minmax(0,325px))] justify-center gap-2 col-span-full mx-2  md:grid-cols-[repeat(3,minmax(0,325px))] md:col-span-full lg:col-start-1 lg:col-end-7 lg:row-start-2 md:gap-6 ">
           {products.map((product) => (
-            <div className="p-4 drop-shadow-md bg-white rounded-md " key={product.id}>
+            <div className="p-4 drop-shadow-md bg-white rounded-md grid" key={product.id}>
               <Link href={`/products/${product.id}`}>
-                <Image src={product.thumbnail} alt={product.title} width={200} height={200} />
+                <Image src={product.thumbnail} alt={product.title} width={200} height={200} className="justify-self-center" />
                 <div className="flex gap-1">
                   {Array.from({ length: 5 }, (_, index) => {
                     if (index < Math.floor(product.rating)) {
@@ -99,7 +99,7 @@ const ProductList = ({ initialProducts, categories }) => {
                 </ul>
               </Link>
               <div className="grid justify-end">
-                <button onClick={() => addItem(product)} className="btn">
+                <button onClick={() => addItem(product)} className="btn-2">
                   Add to cart
                 </button>
               </div>

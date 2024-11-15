@@ -4,6 +4,8 @@ import { useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import useSWR from "swr";
 import Header from "../components/Header";
+import ShoppingBags from "../img/shopping-bags.svg";
+import Image from "next/image";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -69,13 +71,18 @@ const Payment = () => {
               <div className="grid h-fit self-center">
                 <div className="text-2xl">{product.title}</div>
                 <div>{product.brand}</div>
-                <div>{product.price} $</div>
+                <div>{totalPrice} $</div>
               </div>
             </li>
           ))}
         </ul>
         <div>Du skal i alt betale: {totalPrice}</div>
-        <button className="btn">Betal nu</button>
+        <div className="grid mt-5 mb-5">
+          <button className="btn-2 justify-self-center">Betal nu</button>
+        </div>
+        <div className="grid">
+          <Image src={ShoppingBags} alt="billede af shopings bags" className="justify-self-end w-[12rem] h-[12rem] self-end mt-6" />
+        </div>
       </div>
     </section>
   );

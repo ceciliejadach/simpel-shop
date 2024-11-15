@@ -46,46 +46,50 @@ const Payment = () => {
     }
   }, [products]);
 
-  //   useEffect(() => {
-  //     if (products.length > 0) {
-  //       const total = products.reduce((accumulator, product) => {
-  //         const price = parseFloat(product.price) || 0;
-  //         const quantity = parseInt(product.quantity, 10) || 0;
-  //         return accumulator + price * quantity;
-  //       }, 0);
-  //       setTotalPrice(total);
-  //     }
-  //   }, [products]);
-
   return (
-    <section>
+    <>
       <Header />
-      <div className="max-w-[80dvw] min-h-[80vh] m-auto">
-        <div className="">
-          <h1 className="text-subtitle py-4 px-1 my-3">Din kurv</h1>
+      <section className="max-w-screen-md mx-auto">
+        <div className=" min-h-[80vh] m-auto">
+          <div className="">
+            <h1 className="text-subtitle py-4 px-1 my-3">Din kurv</h1>
+          </div>
+          <ul className="flex flex-col gap-5 ">
+            {products.map((product) => (
+              <li key={product.id} className="grid grid-cols-[0.5fr_1fr] gap-2 md:grid-cols-[0.2fr_1fr]">
+                <img src={product.thumbnail} alt={product.title} width={150} height={150} />
+                <div className="grid h-fit self-center">
+                  <div className="text-lg font-bold">{product.title}</div>
+                  <div>{product.brand}</div>
+                  <div>Pris pr. stk.: {product.price} $</div>
+                  <div>Antal:</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <hr className="border-black border-[1px] my-4" />
+          <h2 className="font-bold text-2xl">Du skal i alt betale: {totalPrice} $</h2>
+          <div className="grid mt-5 mb-5">
+            <button className="btn-2 justify-self-center">Betal nu</button>
+          </div>
+          <div className="grid">
+            <Image src={ShoppingBags} alt="billede af shopings bags" className="justify-self-end w-[12rem] h-[12rem] self-end mt-6" />
+          </div>
         </div>
-        <ul className="flex flex-col gap-5 ">
-          {products.map((product) => (
-            <li key={product.id} className="grid grid-cols-[0.2fr_1fr]">
-              <img src={product.thumbnail} alt={product.title} width={150} height={150} />
-              <div className="grid h-fit self-center">
-                <div className="text-2xl">{product.title}</div>
-                <div>{product.brand}</div>
-                <div>{totalPrice} $</div>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <div>Du skal i alt betale: {totalPrice}</div>
-        <div className="grid mt-5 mb-5">
-          <button className="btn-2 justify-self-center">Betal nu</button>
-        </div>
-        <div className="grid">
-          <Image src={ShoppingBags} alt="billede af shopings bags" className="justify-self-end w-[12rem] h-[12rem] self-end mt-6" />
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
 export default Payment;
+
+//   useEffect(() => {
+//     if (products.length > 0) {
+//       const total = products.reduce((accumulator, product) => {
+//         const price = parseFloat(product.price) || 0;
+//         const quantity = parseInt(product.quantity, 10) || 0;
+//         return accumulator + price * quantity;
+//       }, 0);
+//       setTotalPrice(total);
+//     }
+//   }, [products]);

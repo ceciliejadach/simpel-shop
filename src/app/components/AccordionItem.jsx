@@ -19,12 +19,12 @@ const Accordionitem = ({
         }}
         className=" flex items-center justify-between border-white w-full border-b-2"
       >
-        <p className="text-[--dg-text-color] text-[18px] ">{question}</p>
+        <p className="text-[--dg-text-color] text-[18px] font-bold">{question}</p>
         {isOpen == item ? <FiMinus className="place-items-center w-5 h-5 text-black" /> : <GoPlus className=" w-5 h-5 text-black" />}
       </button>
       {isOpen == item && (
         <div className="">
-          <p className="font-sans text-gray-950"> {textOne}</p>
+          <p className="font-sans text-gray-950 "> {textOne}</p>
           <p className="font-sans text-gray-950"> {textTwo}</p>
           <p className="font-sans text-gray-950"> {textThree}</p>
         </div>

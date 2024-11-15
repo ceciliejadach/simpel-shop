@@ -16,7 +16,7 @@ const ListItem = ({
     <li className="grid grid-cols-[auto_1fr] border-b-[1px] mb-4 p-2">
       <Image width={120} height={120} src={image} alt={title} />
       <div className="">
-        <h2 className="text-lg text-wrap font-semibold">{title} </h2>
+        <h2 className="text-lg text-wrap max-w-40 font-semibold">{title} </h2>
         <p className="text-sm opacity-50">{tag}</p>
 
         <div className="flex justify-between items-center col-start-2">

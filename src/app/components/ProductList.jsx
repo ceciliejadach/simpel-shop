@@ -63,7 +63,7 @@ const ProductList = ({ initialProducts, categories }) => {
               Alle kategorier
             </option>
             {categories.map((category, index) => (
-              <option key={category.id || index} value={category.name || category}>
+              <option key={category.slug || index} value={category.slug || category}>
                 {category.name || category}
               </option>
             ))}

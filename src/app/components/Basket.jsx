@@ -1,6 +1,5 @@
 "use client";
 import List from "./List";
-import Link from "react";
 
 const Basket = ({ isOpen, setIsOpen, items, setItems, deleteItem, basketCounter }) => {
   return (
@@ -17,7 +16,7 @@ const Basket = ({ isOpen, setIsOpen, items, setItems, deleteItem, basketCounter 
             >
               click mig!
             </button>
-            <List basketCounter={basketCounter} items={items} setItems={setItems} deleteItem={deleteItem}></List>
+            <List basketCounter={basketCounter} items={items} setItems={setItems} deleteItem={deleteItem} />
           </div>
         </section>
       )}

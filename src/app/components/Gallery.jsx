@@ -10,7 +10,7 @@ const Gallery = ({ thumbnail, images, title }) => {
         <Image className="justify-self-center mb-4" src={selectedProduct} height={500} width={500} alt={title}></Image>
       </div>
       <ul className="flex gap-2">
-        {images.map((image, id) => (
+        {images?.map((image, id) => (
           <li key={id} className="bg-primary-gray rounded-md h-fit w-fit ">
             <button onClick={() => setSelectedProduct(image)}>
               <Image src={image} height={100} width={100} alt={title} />

@@ -1,9 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
-import Image from "next/image";
-
-import { PiFlowerDuotone } from "react-icons/pi";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,28 +24,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <main className="p-4">{children}</main>
-        <footer className="footer grid p-8 ">
-          <div className="pt-8 px-4 flex flex-col gap-4 md:flex-row md:self-center md:justify-between md:max-w-screen-md md:pl-4">
-            <Link href={"/"}>
-              <PiFlowerDuotone className="w-[3.5rem] h-[3.5rem] text-white" />
-            </Link>
-            <div className="text-white">
-              <h2>Kontakt os</h2>
-              <p>Tlf: +45 33113311</p>
-              <p>Lokation: København</p>
-            </div>
-            <div className="text-white">
-              <h2>Hjemmeside</h2>
-              <Link href="/">
-                <p className="hover:underline">Forside</p>
-              </Link>
-              <Link href="/products">
-                <p className=" hover:underline">Produkter</p>
-              </Link>
-            </div>
-          </div>
-        </footer>
+        <header>
+          <ul className="flex gap-4">
+            <li>
+              <Link href="/">Forside</Link>
+            </li>
+            <li>
+              <Link href="/products">Produkter</Link>
+            </li>
+          </ul>
+        </header>
+        {/* <Header /> */}
+        {children}
+        <Footer />
       </body>
     </html>
   );

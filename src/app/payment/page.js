@@ -20,7 +20,7 @@ const PaymentPage = () => {
 
   return (
     <section className="max-w-screen-xl mx-auto h-[70vh] p-4">
-      <h1>Betalingsside</h1>
+      <h1 className="mb-10">Betalingsside</h1>
       <div className="max-w-screen-sm mx-auto grid gap-4">
         {/* Betingelse for at hvis cart er længere end 0, så skal produkter blive vist eller skal teksten: "din kurv er tom" blive vist */}
         {cart.length > 0 ? (
@@ -33,6 +33,7 @@ const PaymentPage = () => {
                     <strong>{product.title}</strong>
                   </h3>
                   <p className="text-gray-500 text-sm">{product.brand}</p>
+                  <p>{product.quantity} stk.</p>
                   <p>
                     {product.discountedPrice ? (
                       <>
@@ -50,6 +51,7 @@ const PaymentPage = () => {
           <p>Din kurv er tom.</p>
         )}
         {/* toFixed gør, at decimalerne af den totalle pris bliver reduceret til to decimaler */}
+        <hr />
         <p className="text-2xl">
           <strong>Total:</strong> {totalCartPrice.toFixed(2)}$
         </p>

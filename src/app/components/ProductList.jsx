@@ -23,7 +23,7 @@ const ProductList = ({ initialProducts, categories, addToCart }) => {
   }
 
   return (
-    <section>
+    <section className="p-20">
       <div>
         <label htmlFor="categorySelect"></label>
         <select id="categorySelect" onChange={(e) => setFilter(e.target.value)} value={filter}>
@@ -35,9 +35,11 @@ const ProductList = ({ initialProducts, categories, addToCart }) => {
           ))}
         </select>
       </div>
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} addToCart={addToCart} />
-      ))}
+      <div className="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-3 ">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} addToCart={addToCart} />
+        ))}
+      </div>
     </section>
   );
 };

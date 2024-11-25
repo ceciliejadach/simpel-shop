@@ -24,24 +24,26 @@ const BasketProductCard = ({ id, thumbnail, title, price, stock, quantity, updat
   const totalPrice = discountPercentage ? (price - (price * discountPercentage) / 100) * quantity : price * quantity;
 
   return (
-    <li key={id} className="flex items-center space-x-4">
-      <img src={thumbnail} alt={title} width={100} height={100} />
-      <div className="flex-1">
-        <h3>{title}</h3>
-        <p>
-          {discountPercentage ? (
-            <>
-              <span className="line-through">{price}$</span> <span className="text-red-500">{(price - (price * discountPercentage) / 100).toFixed(2)}$</span>
-            </>
-          ) : (
-            <>{price}$</>
-          )}
-        </p>
-        <p className="font-bold">Total: {totalPrice.toFixed(2)}$</p>
-        <div className="quantity__counter__container flex items-center space-x-4">
-          <PrimaryButton onClick={removeProduct} theme="default" btntext="-" />
-          <span className="text-normal font-semibold">{quantity}</span>
-          <PrimaryButton onClick={addProduct} theme="default" btntext="+" />
+    <li key={id} className="">
+      <div className="flex items-center space-x-4 drop-shadow-xl  rounded-md p-2 bg-[#f0f0f0]">
+        <img src={thumbnail} alt={title} width={100} height={100} />
+        <div className="flex-1">
+          <h3>{title}</h3>
+          <p>
+            {discountPercentage ? (
+              <>
+                <span className="line-through">{price}$</span> <span className="text-red-500">{(price - (price * discountPercentage) / 100).toFixed(2)}$</span>
+              </>
+            ) : (
+              <>{price}$</>
+            )}
+          </p>
+          <p className="font-bold">Total: {totalPrice.toFixed(2)}$</p>
+          <div className="quantity__counter__container flex items-center space-x-4">
+            <PrimaryButton onClick={removeProduct} theme="default" btntext="-" />
+            <span className="text-normal font-semibold">{quantity}</span>
+            <PrimaryButton onClick={addProduct} theme="default" btntext="+" />
+          </div>
         </div>
       </div>
     </li>

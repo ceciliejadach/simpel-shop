@@ -9,7 +9,9 @@ const ProductCard = ({ product, addToCart }) => {
 
   const handleAddToCart = () => {
     //addToCart defineres i store/cartStore og bruges i App-komponeneten
-    addToCart({ ...product });
+    // addToCart({ ...product });
+    const discountedPrice = discountPercentage ? price - (price * discountPercentage) / 100 : price;
+    addToCart({ ...product, discountedPrice });
   };
   return (
     <>

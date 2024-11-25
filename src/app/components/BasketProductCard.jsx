@@ -19,7 +19,9 @@ const BasketProductCard = ({ id, thumbnail, title, price, stock, quantity, updat
   };
 
   // Beregn den samlede pris for produktet
-  const totalPrice = price * quantity;
+  // const totalPrice = price * quantity;
+
+  const totalPrice = discountPercentage ? (price - (price * discountPercentage) / 100) * quantity : price * quantity;
 
   return (
     <li key={id} className="flex items-center space-x-4">

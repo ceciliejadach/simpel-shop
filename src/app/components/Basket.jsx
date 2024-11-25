@@ -7,7 +7,7 @@ const Basket = ({ cart, updateCartQuantity }) => {
   const itemCounter = cart.reduce((total, item) => total + item.quantity, 0);
 
   // Beregn den samlede pris for hele kurven
-  const totalCartPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+  const totalCartPrice = cart.reduce((total, product) => total + (product.discountedPrice || product.price) * product.quantity, 0);
 
   return (
     <ul className="cart__product__list grid grid-rows-[auto] gap-4 py-2 px-1 border-red border-solid border-[1px]">

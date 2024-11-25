@@ -8,7 +8,8 @@ const Header = () => {
     <header className="col-start-3 col-end-6 grid grid-rows-1 ">
       <nav className="flex bg-primary-black text-secondary-gray mb-5 md:py-6 text-xl justify-between md:px-8 rounded-md">
         <Link href="/">
-          <PiFlowerDuotone className="w-[3.5rem] h-[3.5rem] text-[--blue]" />
+          {/* <PiFlowerDuotone className="w-[3.5rem] h-[3.5rem] text-[--blue]" /> */}
+          <strong className="text-2xl">Bloom</strong>
         </Link>
         <ul className="flex gap-4 items-center">
           <li>

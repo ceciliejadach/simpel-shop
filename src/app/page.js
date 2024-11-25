@@ -1,7 +1,7 @@
-// import Image from "next/image";
+import Image from "next/image";
 // import Header from "./components/Header";
-// import HeroImage from "./img/hero-image.png";
-// import Link from "next/link";
+import HeroImage from "./img/hero-image.png";
+import Link from "next/link";
 
 // export default function Home() {
 //   return (
@@ -26,5 +26,17 @@
 
 //Forside
 export default function Home() {
-  return <section className=""></section>;
+  return (
+    <main className="">
+      <section className="max-w-screen-xl mx-auto text-center h-[70vh] grid place-content-center gap-4">
+        <h1>Are you ready to shop?</h1>
+        <h2>Explore all of our products and go crazy with your shopping!</h2>
+
+        <Link className="bg-[#3C35FF] hover:bg-[#150DFF] text-white px-8 py-4 rounded-full w-fit justify-self-center" href="/products">
+          Explore products
+        </Link>
+      </section>
+      {/* <Image className="opacity-40 place-self-end mb-[5rem]" width={500} height={500} src={HeroImage} alt="billede af en pige der shopper" /> */}
+    </main>
+  );
 }

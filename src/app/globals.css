@@ -52,10 +52,10 @@ h1 {
   font-size: var(--main-title);
 }
 
-/* .footer {
+.footer {
   background-image: url("../app/img/footer-wave.svg");
   object-fit: cover;
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-} */
+}
